@@ -1,0 +1,39 @@
+body {
+  padding: 10px;
+  font-family: serif;
+  background-color: #FFFFFF;
+  font-size: small;
+}
+
+h1 {
+  font-family: sans-serif;
+  font-size: x-large;
+  font-weight: bold;
+  color: #3861aa;
+}
+
+a {
+  color: #3861aa;
+}
+
+h2, th {
+  font-family: sans-serif;
+  font-size: medium;
+  font-weight: bold;
+  margin-top: 20px;
+  color: #3861aa;
+}
+
+img {
+  /*border: solid 1px #000;*/
+  padding: 0;
+}
+
+img.logo {
+  width:512px;
+}
+
+caption {
+  font-style:italic;
+  caption-side:bottom;
+}
