@@ -13,9 +13,9 @@ import os, inspect, glob, argparse
 import pylab as plt
 from matplotlib import rc
 
-# Make our plots compatible with CERN@school LaTeX reports.
-rc('font',**{'family':'serif','serif':['Computer Modern']})
-rc('text', usetex=True)
+# Uncomment to use LaTeX for the plot text.
+#rc('font',**{'family':'serif','serif':['Computer Modern']})
+#rc('text', usetex=True)
 
 # Import the clustering and web-page writing code.
 from clustering import *
