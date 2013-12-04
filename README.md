@@ -43,7 +43,20 @@ so that you don't have to keep typing it out.)
 
 ### On PythonAnywhere
 
-Coming soon?
+You'll need to upload the
+[tarred datafile](http://files.figshare.com/1302362/sr90_testdata_0_00mm.tar)
+to your directory of choice. Click on the **Files** tab on the
+**Dashboard**, choose/create a directory as necessary and click on the
+**Browse** button next to "Upload a file:" to choose the datafile.
+Then go back to the **Console** and untar the file:
+
+    cd $DATADIR # i.e. wherever you've uploaded the file.
+    tar -xvf sr90_testdata_0_00mm.tar
+
+Hey presto! Your data is now available on `PythonAnywhere`.
+
+**NOTE**: This may be changing soon... watch this space!
+
 
 ## Running the code
 
