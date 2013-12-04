@@ -27,64 +27,38 @@ can be found
 [here](http://files.figshare.com/1302362/sr90_testdata_0_00mm.tar).
 To download it and unpack it, type the following commands:
 
-    cd $DATADIR # i.e. wherever you're putting your data.
-    wget http://files.figshare.com/1302362/sr90_testdata_0_00mm.tar
-    tar -xvf sr90_testdata_0_00mm.tar
 
+    mkdir strontium-90-data
+    cd strontium-90-data
+    curl http://files.figshare.com/1302362/sr90_testdata_0_00mm.tar | tar x
+    ls
+    
 You should now have 600 data files (and accompanying detector settings
-files) in your `$DATADIR`.
-
-(You may even wish to set $DATADIR as an environment variable, e.g.
-
-    export DATADIR=/home/twhyntie/data/samples/sr90
-    echo $DATADIR
-
-so that you don't have to keep typing it out.)
-
-### On PythonAnywhere
-
-You'll need to upload the
-[tarred datafile](http://files.figshare.com/1302362/sr90_testdata_0_00mm.tar)
-to your directory of choice. Click on the **Files** tab on the
-**Dashboard**, choose/create a directory as necessary and click on the
-**Browse** button next to "Upload a file:" to choose the datafile.
-Then go back to the **Console** and untar the file:
-
-    cd $DATADIR # i.e. wherever you've uploaded the file.
-    tar -xvf sr90_testdata_0_00mm.tar
-
-Hey presto! Your data is now available on `PythonAnywhere`.
-
-**NOTE**: This may be changing soon... watch this space!
+files) in your `strontium-90-data` directory.
 
 
 ## Running the code
 
-Once you've got your data in your `$DATADIR`, run the code as follows:
+Once you've got the data, got back up one folder and run the code:
 
-    cd $WORKINGDIR
-    python fast-cluster.py $DATADIR
+    cd ..
+    python fast-cluster.py strontium-90-data
 
 ## Viewing the results
 
-The `fast-cluster.py` program generates an `html` file that
-you can use a browser to view:
+The `fast-cluster.py` program generates an html file that
+you can use a web browser to view. Just navigate to your working directory on 
+your PC and double-click `index.html`
 
-    cd $WORKINGDIR
-    python fast-cluster.py
-    firefox index.html &
-
-This should open a new browser window that will display your
-results.
 
 ### On PythonAnywhere
 
 Go to the **Dashboard** and click on the **Files** tab.
 Then go to the `fast-cluster-analysis` folder (i.e. where you've
-been working) and click on the **Download** button (a down-facing
-arrow) next to `index.html`. You won't actually download the
-file; rather, the browser will display the `.html` page
-featuring your results.
+been working) and click on the **download icon** for `index.html` 
+(it's a down-facing arrow to the right of the file name). 
+You won't actually download the file; rather, the browser will 
+display the html page featuring your results.
 
 
 ## Making changes and exploring the data
