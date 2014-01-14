@@ -2,7 +2,7 @@
 
 import glob
 
-def make_page(path, datapath):
+def make_page(path, datapath, numclusters):
 
     homepagename = path + "/index.html"
 
@@ -21,6 +21,7 @@ def make_page(path, datapath):
     f.write("      <ul>\n")
     f.write("        <li>Dataset path = '%s'</li>\n" % datapath)
     f.write("        <li>Number of frames = %d</li>\n" % len(glob.glob(datapath + "/*.txt")))
+    f.write("        <li>Number of clusters = %d</li>\n" % (numclusters))
     f.write("      </ul>\n")
     f.write("    </p>\n")
     f.write("    <h2>Cluster properties</h2>\n")

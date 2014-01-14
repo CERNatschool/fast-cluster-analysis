@@ -161,7 +161,7 @@ if __name__=="__main__":
     cduplot.savefig("cdu.png")
 
     # Generate the html page, index.html
-    make_page(path, datapath)
+    make_page(path, datapath, len(cluster_size))
 
     # Now you can view "index.html" to see your results!
     print("*")
