@@ -28,9 +28,9 @@ path = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
 # The main program.
 #
 if __name__=="__main__":
-    print("============================================")
-    print("  CERN@school Fast Blob Analysis (Python)   ")
-    print("============================================")
+    print("==============================================")
+    print("  CERN@school Fast Cluster Analysis (Python)  ")
+    print("==============================================")
 
     # Get the datafile path from the command line
     parser = argparse.ArgumentParser()
