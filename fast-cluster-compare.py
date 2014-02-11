@@ -152,9 +152,9 @@ if __name__=="__main__":
     #
     #n, bins, patches = plt.hist(cluster_size, range(0,max(cluster_size)+5,1), histtype='stepfilled')
     hpcbinmax = max(max(cluster_size), max(sim_cluster_size))
-    n, bins, patches = plt.hist(cluster_size, range(0,hpcbinmax+5,1), histtype='stepfilled')
+    n, bins, patches = plt.hist(cluster_size, range(0,hpcbinmax+5,1), histtype='stepfilled', normed=1)
     plt.setp(patches, 'facecolor', 'g', 'alpha', 0.75, 'linewidth', 0.0)
-    n_s, bins_s, patches_s = plt.hist(sim_cluster_size, range(0,hpcbinmax+5,1), histtype='step')
+    n_s, bins_s, patches_s = plt.hist(sim_cluster_size, range(0,hpcbinmax+5,1), histtype='step', normed=1)
     #plt.setp(patches_s, 'facecolor', 'g', 'alpha', 0.75, 'linewidth', 0.0)
     #
     # Save the figure.
