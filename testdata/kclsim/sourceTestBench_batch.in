@@ -1,0 +1,68 @@
+#=============================================================================
+#    Allpix: the CERN@school Timepix detector with a Potassium-40 source
+#=============================================================================
+
+# The laboratory.
+/allpix/lab/setLatitude 51.261015 deg
+/allpix/lab/setLongitude 1.084127 deg
+/allpix/lab/setAltitude 48.0 m
+/allpix/lab/setRollAngle  0.0 deg
+/allpix/lab/setPitchAngle 0.0 deg
+/allpix/lab/setYawAngle   0.0 deg
+
+# The CERN@school Mk1 detector 
+/allpix/det/setId        900
+#/allpix/det/setPosition   -1.305    0.0   23.075 mm
+/allpix/det/setPosition   -1.305    0.0   0.075 mm
+/allpix/det/setRotation   90.0    180.0    0.0   deg
+/allpix/det/setFoilThickness 0.0174 mm
+/allpix/det/setLowTHL 13. keV
+
+# The test structure - the KCl source
+/allpix/extras/setTestStructure SourceTestBench
+/allpix/extras/setTestStructurePosition 0.0 -10.0 -15.0 mm
+/allpix/extras/setTestStructureRotation 0.0 0.0 0.0 deg
+/allpix/extras/setTestStructureShieldingThickness 0.0 mm
+
+# Max step lenght.  Applies only to the sensor
+/allpix/det/setMaxStepLengthSensor 10 um
+
+# Initialize the simulation.
+/run/initialize
+
+# Build the detectors.
+/allpix/det/update
+
+########################################################################
+
+/tracking/verbose 0
+
+################################
+# General Particle Source (GPS)
+################################
+
+# A disc of K-40 ions, to match the test structure source.
+/gps/ene/mono 0. MeV
+/gps/particle ion
+/gps/ion 19 40
+/grdm/fBeta 1
+
+/gps/pos/type Volume
+/gps/pos/shape Cylinder
+/gps/pos/centre 0. -14.5 -15. mm
+/gps/pos/halfz 0.001 mm
+/gps/pos/radius 27.5 mm
+/gps/pos/rot1 1 0 0
+/gps/pos/rot2 0 0 1
+/gps/ang/type iso
+
+/gps/source/list
+
+/allpix/lab/setSourceId KCl (test bench)
+
+########################################################################
+
+# Run the simulation with the number of events specified.
+/run/beamOn 200000
+
+########################################################################

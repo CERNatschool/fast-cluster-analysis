@@ -15,51 +15,42 @@ from the NumPy and PyLab libraries.
 
 Clone the `fast-cluster-analysis` repo into your working directory:
 
-    cd $WORKINGDIR # where $WORKINGDIR is your working directory,
-                   # e.g. /home/twhyntie/dev/python/CERNatschool/
-    git clone https://github.com/CERNatschool/fast-cluster-analysis.git
-    cd fast-cluster-analysis
+```bash
+cd $WORKINGDIR # where $WORKINGDIR is your working directory,
+               # e.g. /home/twhyntie/dev/CERNatschool/
+git clone https://github.com/CERNatschool/fast-cluster-analysis.git
+cd fast-cluster-analysis
+```
 
 ## Getting the data
 
-A sample of strontium-90 data taken with a CERN@school MX-10 detector
-can be found
-[here](http://files.figshare.com/1302362/sr90_testdata_0_00mm.tar).
-To download it and unpack it, type the following commands:
+Two datasets - one real, one simulated - are provided with the code:
 
-
-    mkdir strontium-90-data
-    cd strontium-90-data
-    curl http://files.figshare.com/1302362/sr90_testdata_0_00mm.tar | tar x
-    ls
-    
-You should now have 600 data files (and accompanying detector settings
-files) in your `strontium-90-data` directory.
-
+* `testdata/kcldata/`: real data from a KCl (Lo Salt) sample;
+* `testdata/kclsim/`: simulated data with a KCl test source.
 
 ## Running the code
 
-Once you've got the data, got back up one folder and run the code:
+First, process and make the plots for the real data:
+```bash
+$ mkdir ../tmpkcldata
+$ python process-frames.py testdata/kcldata/ ../tmpkcldata
+$ python make-plots.py ../tmpkcldata ../tmpkcldata
+```
 
-    cd ..
-    python fast-cluster.py strontium-90-data
+Then process and make the plots for the simulated data:
+```bash
+$ mkdir ../tmpkclsim
+$ python process-frames.py testdata/kclsim/ ../tmpkclsim
+$ python make-plots.py ../tmpkclsim ../tmpkclsim
+```
 
-## Viewing the results
-
-The `fast-cluster.py` program generates an html file that
-you can use a web browser to view. Just navigate to your working directory on 
-your PC and double-click `index.html`
-
-
-### On PythonAnywhere
-
-Go to the **Dashboard** and click on the **Files** tab.
-Then go to the `fast-cluster-analysis` folder (i.e. where you've
-been working) and click on the **download icon** for `index.html` 
-(it's a down-facing arrow to the right of the file name). 
-You won't actually download the file; rather, the browser will 
-display the html page featuring your results.
-
+Finally, you can make and view the comparison plots:
+```bash
+$ mkdir ../tmpcompare
+$ python compare-plots.py ../tmpkcldata/ ../tmpkclsim/ ../tmpcompare/
+$ firefox ../tmpcompare/clusterplots/index.html &
+```
 
 ## Making changes and exploring the data
 
@@ -70,10 +61,11 @@ you've done with it!
 If you find any errors, or think of ways to improve the code,
 please create an "issue" and we'll see what we can do.
 
-## Authors/Editors
+## Authors/Editors/Contributors
 
-* Tom Whyntie (twhyntie) - Queen Mary, University of London
-* Azaria Coupe (acoupe) - Uni. of Southampton
+* Tom Whyntie - @twhyntie - Queen Mary University of London;
+* Azaria Coupe - @acoupe - Uni. of Southampton;
+* Rebecca Fickling - @fickling - Queen Mary University of London.
 
 ## Further information
 
