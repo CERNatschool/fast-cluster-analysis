@@ -5,10 +5,18 @@
 
 This simple cluster finder and analyser is based on C++ code
 originally supplied to the CERN@school project by
-Son Hoang (NASA/Uni. of Florida).
+Son Hoang (NASA/Uni. of Houston).
 
 It has been adapted to include plotting functionality
 from the NumPy and PyLab libraries.
+
+_Please note: the **linearity** cluster variable currently
+fits the line of best fit by measuring the pixel distances from
+the line in y coordinate. This means it is not technically
+rotationally invariant as a cluster variable.
+To fix this, the perpendicular distance of each pixel
+from the line of best fit should be calculated and used in the
+minimisation function. This is left as an exercise for the reader._
 
 
 ## Getting the code
@@ -67,8 +75,11 @@ please create an "issue" and we'll see what we can do.
 * Azaria Coupe - @acoupe - Uni. of Southampton;
 * Rebecca Fickling - @fickling - Queen Mary University of London.
 
+With thanks to the 2016 MoEDAL summer students for constructive
+feedback and suggestions for improving the code.
+
 ## Further information
 
-* [CERN@school homepage](http://cernatschool.web.cern.ch);
-* [The Langton Star Centre](http://www.thelangtonstarcentre.org);
+* [CERN@school homepage](http://researchinschools.org/CERN);
+* [The Institute for Research in Schools](http://researchinschools.org);
 * [Strontium-90 sample dataset](http://figshare.com/articles/Sr_90_test_data/867659).

@@ -1,14 +1,21 @@
 ===============================================================================
    The CERN@school Simple Cluster Analyser
-   Copyright 2012-2013 The Simon Langton Grammar School for Boys
+   Copyright 2012-2015 The Simon Langton Grammar School for Boys
+   Copyright 2015-2017 The Institute for Research in Schools
 ===============================================================================
 
    This product includes software developed at
-   The Langton Star Centre (http://www.thelangtonstarcentre.org).
+   The Langton Star Centre (http://www.thelangtonstarcentre.org)
+   and
+   The Institute for Research in Schools (http://researchinschools.org)
 
    This product was developed with the aid of funding from
    the United Kingdom's Science and Technology Facilities Council (STFC)
-   Science in Society Large Award (ST/J0000256/1) and subsequent extensions.
+   grant numbers:
+   * ST/J000256/1 (STFC Science in Society Large Award)
+   * ST/N00101X/1 (STFC Public Engagement Fellowship),
+   and
+   * a Special Award from the Royal Commission for the Exhibition of 1851.
    We kindly request that any academic work making use of this software
    acknowledges this contribution in the "Acknowledgments" section
    (or equivalent portion of the document).

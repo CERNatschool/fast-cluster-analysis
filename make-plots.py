@@ -7,7 +7,7 @@
 
  See the README.md file and the GitHub wiki for more information.
 
- http://cernatschool.web.cern.ch
+ http://researchinschools.org/CERN
 
 """
 
