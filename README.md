@@ -42,8 +42,16 @@ Two datasets - one real, one simulated - are provided with the code:
 First, process and make the plots for the real data:
 ```bash
 $ mkdir ../tmpkcldata
-$ python process-frames.py --maxframes=5 testdata/kcldata/ ../tmpkcldata
+$ python process-frames.py testdata/kcldata/ ../tmpkcldata
 $ python make-plots.py ../tmpkcldata ../tmpkcldata
+```
+
+_Note: this will process all 120 frames, which may take some time.
+To process fewer frames, use the `--maxframe` option
+for the `process-frames.py` script like so:_
+
+```bash
+$ python process-frames.py --maxframes=5 testdata/kcldata/ ../tmpkcldata
 ```
 
 Then process and make the plots for the simulated data:
