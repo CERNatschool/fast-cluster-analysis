@@ -74,7 +74,7 @@ if __name__ == "__main__":
     # Create the subdirectories.
 
     ## The path to the frame plots.
-    fppath = outputpath + "/frameplots/"
+    fppath = os.path.join(outputpath, "frameplots")
     #
     if os.path.isdir(fppath):
         rmtree(fppath)
@@ -84,7 +84,7 @@ if __name__ == "__main__":
     lg.info("")
 
     ## The path to the cluster plots.
-    kppath = outputpath + "/clusterplots/"
+    kppath = os.path.join(outputpath, "clusterplots")
     #
     if os.path.isdir(kppath):
         rmtree(kppath)

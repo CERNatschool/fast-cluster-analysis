@@ -42,7 +42,7 @@ Two datasets - one real, one simulated - are provided with the code:
 First, process and make the plots for the real data:
 ```bash
 $ mkdir ../tmpkcldata
-$ python process-frames.py testdata/kcldata/ ../tmpkcldata
+$ python process-frames.py --maxframes=5 testdata/kcldata/ ../tmpkcldata
 $ python make-plots.py ../tmpkcldata ../tmpkcldata
 ```
 

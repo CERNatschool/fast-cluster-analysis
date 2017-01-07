@@ -47,6 +47,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("inputPath",       help="Path to the input dataset.")
     parser.add_argument("outputPath",      help="The path for the output files.")
+    parser.add_argument("--maxframes",     help="The maximum number of frames to skim.", default=-1, type=int)
     parser.add_argument("-v", "--verbose", help="Increase output verbosity", action="store_true")
     parser.add_argument("-g", "--gamma",   help="Process gamma candidates too", action="store_true")
     args = parser.parse_args()
@@ -56,6 +57,9 @@ if __name__ == "__main__":
 
     ## The output path.
     outputpath = args.outputPath
+
+    ## The maximum number of frames to process.
+    max_frames = args.maxframes
 
     # Set the logging level.
     if args.verbose:
@@ -67,8 +71,14 @@ if __name__ == "__main__":
     lg.basicConfig(filename=outputpath + '/log_process-frames.log', filemode='w', level=level)
 
     print("*")
-    print("* Input path          : '%s'" % (datapath))
-    print("* Output path         : '%s'" % (outputpath))
+    print("* Input path                  : '%s'" % (datapath))
+    print("* Output path                 : '%s'" % (outputpath))
+    print("*")
+    if max_frames < 0:
+        print("* Processing all frames.")
+    else:
+        print("* Number of frames to process : % 10d" % (max_frames))
+    print("*")
     if args.gamma:
         print("* Gamma candidate clusters WILL be processed.")
     else:
@@ -138,7 +148,13 @@ if __name__ == "__main__":
     ## The frames from the dataset.
     frames = ds.getFrames((lat, lon, alt), pixelmask = pixel_mask)
 
-    lg.info("* Found %d datafiles." % (len(frames)))
+    lg.info(" * Found %d datafiles." % (len(frames)))
+    print("* Found %d datafiles." % (len(frames)))
+    print("*")
+
+    if max_frames < 0 or max_frames > len(frames):
+        max_frames = len(frames)
+
 
     ## A list of frames.
     mds = []
@@ -149,8 +165,14 @@ if __name__ == "__main__":
     ## A list of clusters.
     klusters = []
 
-    # Loop over the frames and upload them to the DFC.
-    for f in frames:
+    ## Frame count.
+    count = 0
+
+    # Loop over the frames.
+    for i, f in enumerate(sorted(frames)):
+
+        if i % 10 == 0:
+            print("* Processing frame % 5d of % 5d..." % (i, max_frames))
 
         ## The basename for the data frame, based on frame information.
         bn = "%s_%d-%06d" % (f.getChipId(), f.getStartTimeSec(), f.getStartTimeSubSec())
@@ -206,6 +228,9 @@ if __name__ == "__main__":
             # Make the cluster image.
             makeKlusterImage(klusterid, kl, klpath)
 
+        count += 1
+
+        if count >= max_frames: break
         #break # TMP - uncomment to only process the first frame.
 
     # Write out the frame information to a JSON file.
