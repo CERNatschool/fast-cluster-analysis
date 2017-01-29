@@ -5,9 +5,7 @@
 
  CERN@school - Make Plots
 
- See the README.md file and the GitHub wiki for more information.
-
- http://researchinschools.org/CERN
+ See the README.md file for more information.
 
 """
 
