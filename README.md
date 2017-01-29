@@ -1,7 +1,7 @@
 # CERN@school: Fast Cluster Analysis
 This code can be used to perform a "fast" cluster analysis on
 data collected with a
-[Timepix detector](http://medipix.web.cern.ch), for use in
+[Timepix detector](http://medipix.web.cern.ch) for use in
 research conducted as part of the CERN@school programme.
 An example analysis using the radiation profile methods
 described in Section 4 of the CERN@school
@@ -11,18 +11,6 @@ is included.
 The datasets featured in the paper are included with the code,
 but may also be found on FigShare
 [here](http://doi.org/10.6084/m9.figshare.4588276.v2).
-
-
-## Introduction
-
-
-_Please note: the **linearity** cluster variable currently
-fits the line of best fit by measuring the pixel distances from
-the line in y coordinate. This means it is not technically
-rotationally invariant as a cluster variable.
-To fix this, the perpendicular distance of each pixel
-from the line of best fit should be calculated and used in the
-minimisation function. This is left as an exercise for the reader._
 
 
 ## Disclaimers
@@ -40,6 +28,13 @@ For future work regarding CERN@school, please refer to the
 [GitHub repository](https://github.com/InstituteForResearchInSchools).
 Please also feel free to fork and modify this code as required for
 your own research._
+* _Please note that the **linearity** cluster variable currently
+fits the line of best fit by measuring the pixel distances from
+the line in y coordinate. This means it is not technically
+rotationally invariant as a cluster variable.
+To fix this, the perpendicular distance of each pixel
+from the line of best fit should be calculated and used in the
+minimisation function. This is left as an exercise for the reader._
 
 
 ## Getting the code
