@@ -46,8 +46,8 @@ your own research._
 First, clone the `fast-cluster-analysis` repo into your working directory:
 
 ```bash
-git clone https://github.com/CERNatschool/fast-cluster-analysis.git
-cd fast-cluster-analysis
+$ git clone https://github.com/CERNatschool/fast-cluster-analysis.git
+$ cd fast-cluster-analysis
 ```
 
 To prepare for running, run the `setup.sh` script with the following
@@ -105,6 +105,11 @@ $ mkdir ../tmpcompare
 $ python compare-plots.py ../tmpkcldata/ ../tmpkclsim/ ../tmpcompare/
 $ firefox ../tmpcompare/clusterplots/index.html &
 ```
+
+These are Figures 6 a), b) and c) from
+([Whyntie et al. 2015](http://dx.doi.org/10.1080/00107514.2015.1045193)).
+By using your own data, for example collected from your own KCl source,
+you can make your own versions of these plots to use in your own research.
 
 
 ## Making changes and exploring the data
